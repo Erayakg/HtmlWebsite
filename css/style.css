@@ -86,9 +86,8 @@ a:focus {
     height: 90px;
     background: #fdbe33;
 }
-
 .top-bar .logo {
-    padding: 15px 0;
+    padding: 10px 0;
     text-align: left;
     overflow: hidden;
 }
@@ -96,15 +95,47 @@ a:focus {
 .top-bar .logo h1 {
     margin: 0;
     color: #030f27;
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 36px; /* Normal ekran boyutunda font boyutu */
+    line-height: 40px;
     font-weight: 700;
+    white-space: nowrap; /* Taşma engeli */
+    text-overflow: ellipsis; /* Taşma durumunda ... */
+    overflow: hidden;
 }
 
 .top-bar .logo img {
     max-width: 100%;
-    max-height: 60px;
+    max-height: 50px;
+    object-fit: contain;
 }
+
+/* Responsive düzenleme */
+@media (max-width: 768px) {
+    .top-bar .logo h1 {
+        font-size: 28px; /* Daha küçük ekranlar için küçültülmüş font boyutu */
+        line-height: 32px;
+    }
+
+    .top-bar .logo img {
+        max-height: 40px; /* Görsel boyutları küçültüldü */
+    }
+}
+
+@media (max-width: 576px) {
+    .top-bar {
+        text-align: center; /* Küçük ekranlarda logo merkeze alınır */
+    }
+
+    .top-bar .logo h1 {
+        font-size: 24px; /* Daha küçük ekranlar için daha küçük font boyutu */
+        line-height: 28px;
+    }
+
+    .top-bar .logo img {
+        max-height: 35px; /* Görsel iyice küçültülür */
+    }
+}
+
 
 .top-bar .top-bar-item {
     display: flex;
